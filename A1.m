@@ -57,7 +57,7 @@ x = 1; y = 2; t = [x x*y sin(x) x/y]; z = diag(t)
 %          0         0         0    0.5000
 
 % Question 7
-x = 1; y = 2; z(1,1) = x; z(2,2) = x*y; z(3,3) = sin(x); z(4,4) = x/y; z
+x = 1; y = 2; t = [x x*y sin(x) x/y];z = ([1;1;1;1] * t) .* eye(4)
 % Expected output:
 % z =
 %
@@ -92,7 +92,7 @@ y = x.^3 + 2.*(x.^2) + x; y'
 %    100
 
 % Question 10
-u=[-1 8 -2];v=[6.5 -5 -4]; w=[1 -1 -1];
+u=[-3 8 -2];v=[6.5 -5 -4]; w=[1 -1 -1];
 Q=(dot(u,v))^2 * (cross(cross(u,v),w))
 % Expected output:
 % Q =
@@ -130,8 +130,8 @@ Q = X\(Y + X*X)
 %     0.5000    8.0000    6.0000
 %     1.5000    2.0000    2.0000
 
-% Question 13
-A = [4 1 1; 7 2 13; 3 0 -1]; b = [3;4;11];
+% Question 12 - 2
+A = [4 1 1; 2 7 13; 3 0 -1]; b = [3;4;11];
 Q = A\b
 % Expected output:
 % Q =
@@ -140,7 +140,7 @@ Q = A\b
 %   -12.0313
 %     0.1562
 
-% Question 14
+% Question 13
 F = zeros(1,25); F(2) = 1;
 for i = 3:25
     F(i) = F(i-1) + F(i-2);
@@ -161,19 +161,21 @@ F
 
 % Question 14
 F = zeros(1,25); F(2) = 1;
-for i = 3:25
+for i = 3:30
     F(i) = F(i-1) + F(i-2);
 end
 f1=figure('Name', 'Assignment 1, Question 14');
 figure(f1);
-plot(2:25,F(2:25));
-ylabel("The nth Fibonacci number");
+plot(2:30,log(F(2:30)));
+ylabel("The log of the nth Fibonacci number");
 xlabel("n");
 % Expected output:
 % Included as images/A1Q14.jpg
 
 % Question 15
-t = linspace(0,10); x = (3.*(t.^1.3))./(1+t.^3); y = (3.*(t.^2))./(1+t.^3);
+t = linspace(0,10); 
+x = (3.*(t.^1.3))./(1+t.^3); 
+y = (3.*(t.^2))./(1+t.^3);
 f2=figure('Name', 'Assignment 1, Question 15');
 figure(f2);
 subplot(2,1,1); 
