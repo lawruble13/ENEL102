@@ -5,6 +5,8 @@
     Protected under GPL v3
 %}
 
+% Expected outputs are not complete, see assignment 4 word document for my answers
+
 % Question 1
 f41 = figure('Name', 'Assignment 4, Question 1');
 figure(f41);
